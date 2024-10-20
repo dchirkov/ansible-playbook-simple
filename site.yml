@@ -1,12 +1,11 @@
 ---
 # This Play will print a debug message on the host.
-- name: Play that prints a debug message
+- name: Write user id in the file
   hosts: all
   connection: local
-  vars:
-    person: Bernie
 
   tasks:
-    - ansible.builtin.debug:
-        msg: Henlo there {{ person }}!
+    - name: Write user id in the file
+      ansible.builtin.shell:
+        cmd: id >> id.txt
 
